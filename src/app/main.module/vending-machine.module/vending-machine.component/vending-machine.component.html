@@ -18,7 +18,7 @@
                 <div *ngIf="slot.assignedProduct" class="quantity-remaining">x{{slot.assignedProduct.quantity}}</div>
                 <div class="product-slot-window" [class.none]="slot.assignedProduct && slot.assignedProduct.quantity === 0 || !slot.assignedProduct || slot.assignedProduct && slot.assignedProduct.price > totalPaid">
                   <img [class.none-remaining]="slot.assignedProduct && slot.assignedProduct.quantity === 0" *ngIf="slot.assignedProduct" class="product-image"
-                    height="64" width="64" src="{{slot.assignedProduct.imageUrl}}" alt="">
+                    height="64" src="{{slot.assignedProduct.imageUrl}}" alt="">
                   <div matTooltipClass="no-margin" matTooltipPosition="above" matTooltip="Sold Out!" *ngIf="slot.assignedProduct && slot.assignedProduct.quantity === 0"
                     class="sold-out">
                     <mat-icon style="color: #d32f2f;" class="mdi-60px mdi-bold" fontSet="mdi" fontIcon="mdi-cancel"></mat-icon>
@@ -28,7 +28,7 @@
                   </div>
                 </div>
                 <div style="padding-top: 3px; color: rgba(255,255,255,0.67);">{{slot.code}}
-                  <span style="color: rgba(255,255,255,0.67);" *ngIf="slot.assignedProduct"> | {{slot.assignedProduct.price | currency:'USD':true:'1.2-2'}}</span>
+                  <span style="color: rgba(255,255,255,0.67);" *ngIf="slot.assignedProduct"> | {{slot.assignedProduct.price | currency:'USD':'symbol':'1.2-2'}}</span>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
                 <p>25</p>
               </div>
             </div>
-            <div fxLayout="row" style="padding-bottom: 10px;">
+            <div fxLayout="row" fxLayoutAlign="center center" style="padding-bottom: 10px;">
               <div class="payment-method-container" style="width: 250px;">
                 <div class="payment-method">
                   <div class="dollar-bill" (click)="moneyClicked(1)">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-bottom: 20px;">
+            <div fxLayout="row" fxLayoutAlign="center center" style="padding-bottom: 20px;">
               <div class="payment-method-container" style="width: 250px;">
                 <div class="payment-method">
                   <div class="dollar-bill" (click)="moneyClicked(10)">
@@ -142,8 +142,8 @@
             </div>
           </mat-tab>
         </mat-tab-group>
-        <div fxFlex fxLayout="row" fxLayoutAlign="center center" style="width: 100%; font-size: 14px; padding-top: 30px; border-top: solid 2px #777;">
-          Total Inserted: {{totalPaid | currency:'USD':true:'1.2-2'}}
+        <div fxFlex fxLayout="row" fxLayoutAlign="center center" style="width: 100%; font-size: 18px; padding-top: 30px; border-top: solid 2px #777;">
+          Total Inserted: {{totalPaid | currency:'USD':'symbol':'1.2-2'}}
           <span fxFlex></span>
           <span>
             <button mat-button color="primary" (click)="calculateChange()">Calculate Change</button>

@@ -8,7 +8,7 @@ import { VendingMachineComponent } from './vending-machine.component/vending-mac
 const vendingMachineRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'vending-machines-list',
+        redirectTo: 'list',
         pathMatch: 'full'
     },
     {
@@ -20,7 +20,7 @@ const vendingMachineRoutes: Routes = [
         },
         children: [
             {
-                path: 'vending-machines-list',
+                path: 'list',
                 component: VendingMachineListComponent,
                 data: {
                     menuItem: 'Vending Machines',
@@ -28,7 +28,7 @@ const vendingMachineRoutes: Routes = [
                 },
             },
             {
-                path: 'vending-machines-list/:machineId',
+                path: 'list/:machineId',
                 component: VendingMachineComponent,
                 data: {
                     menuItem: 'Vending Machines',

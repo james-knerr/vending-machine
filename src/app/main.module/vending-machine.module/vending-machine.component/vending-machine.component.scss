@@ -83,7 +83,7 @@
   .product-image {
     position: relative;
     top: 18px;
-    left: 5px;
+    left: 14px;
     z-index: 100;
   }
   .product-image.none-remaining {
@@ -104,7 +104,7 @@
   
   .coin:hover {
     box-shadow: 0px 1px 18px 0px rgba(black, 0.12), 0px 6px 10px 0px rgba(black, 0.14), 0px 3px 5px -1px rgba(black, 0.2);
-  }
+}
 
   .coin{
       
@@ -142,6 +142,7 @@
     position: absolute;
     border-radius: 50px;
     z-index: 500;
+    transition: all 0.3s ease;
     }
 
   .bronze{
@@ -151,6 +152,11 @@
   .bronze:before{
     background: linear-gradient(135deg,  #d19c35 0%,#f7e6c5 50%,#e8b558 100%);
     border: 1px solid #e6b86a;
+    }
+
+    .coin.bronze:hover::before {
+        background: linear-gradient(135deg,  #d19c35 0%,#f7e6c5 50%,#e8b558 100%);
+        border: 1.75px solid rgb(218, 176, 104);
     }
   
   .bronze:after{
@@ -170,7 +176,11 @@
     background: linear-gradient(45deg,  rgba(181,181,181,1) 0%,rgba(252,252,252,1) 56%,rgba(232,232,232,1) 96%);
     border: 1px solid rgba(181,181,181,1);
     }
-  
+
+    .coin.silver:hover::before {
+        background: linear-gradient(45deg,  rgba(181,181,181,1) 0%,rgba(252,252,252,1) 56%,rgba(232,232,232,1) 96%);
+        border: 1.75px solid rgba(165,165,165,1);
+    }
   
   .silver:after{
     background: linear-gradient(45deg,  rgba(181,181,181,1) 0%,rgba(252,252,252,1) 56%,rgba(232,232,232,1) 96%);
@@ -193,6 +203,9 @@
     border-radius: 7.5px;
 }
 .dollar-bill:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(88, 124, 67);
     box-shadow: 0px 1px 18px 0px rgba(black, 0.12), 0px 6px 10px 0px rgba(black, 0.14), 0px 3px 5px -1px rgba(black, 0.2);
   }
 .dollar-number {

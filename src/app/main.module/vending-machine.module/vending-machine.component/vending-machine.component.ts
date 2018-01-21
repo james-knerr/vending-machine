@@ -131,6 +131,6 @@ export class VendingMachineComponent implements OnInit {
   }
 
   public insertMoney() {
-    this.totalPaid = this.stripFormatting(this.moneyToInsert);
+    this.totalPaid += this.stripFormatting(this.moneyToInsert);
   }
 }

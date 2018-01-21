@@ -63,7 +63,7 @@ export class AppDataService implements InMemoryDbService {
                     {
                         'id': '4',
                         'name': 'Mini Oreos',
-                        'imageUrl': 'http://www.nationwidecandy.com/mmCANDY/Images/015910-Mini-Oreo-Bite-Size-Cookies.jpg',
+                        'imageUrl': 'http://www.oreo.co.uk/~/media/oreo/couk/images/page/products/description/oreo-mini-tub/oreo-mini-tub-w720.png',
                         'price': 0.75,
                         'quantity': 6
                     }
@@ -86,8 +86,8 @@ export class AppDataService implements InMemoryDbService {
                 'assignedProduct':
                     {
                         'id': '6',
-                        'name': 'Crunchy Peanut Butter Clif Bar',
-                        'imageUrl': 'https://images-na.ssl-images-amazon.com/images/I/71moMmVdABL._SL1500_.jpg',
+                        'name': 'Clif Bar',
+                        'imageUrl': 'https://a2cf4fa39d1096849525-c9e74d9e365a688b9dfb3e01b6ac4867.ssl.cf5.rackcdn.com/cloud_images/FL_THUMB_NBFcpb_R4_250x350_v2.png',
                         'price': .95,
                         'quantity': 5
                     }
@@ -99,7 +99,7 @@ export class AppDataService implements InMemoryDbService {
                     {
                         'id': '7',
                         'name': 'Mini Pretzels',
-                        'imageUrl': 'https://images-na.ssl-images-amazon.com/images/I/51Kh6izjlsL._SY355_.jpg',
+                        'imageUrl': 'http://www.myglutenfreereview.com/wp-content/uploads/2014/02/8ozGFMini_New_2ca193397e581fd34ba47af650dab7c3.png',
                         'price': 1.25,
                         'quantity': 0
                     }
@@ -110,8 +110,8 @@ export class AppDataService implements InMemoryDbService {
                 'assignedProduct':
                     {
                         'id': '8',
-                        'name': 'Doublemint Gum',
-                        'imageUrl': 'http://www.chewinggumfacts.com/images/chewinggumfacts/wrigleys-doublemint-small.jpg',
+                        'name': 'Extra Polar Ice Chewing Gum',
+                        'imageUrl': 'https://www.usacandywholesale.com/media/catalog/product/cache/1/small_image/300x400/9df78eab33525d08d6e5fb8d27136e95/e/x/extra_polar_ice.png',
                         'price': .50,
                         'quantity': 5
                     }
