@@ -1,0 +1,158 @@
+<mat-card fxLayout fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="start stretch" style="height: 100%; overflow-y: auto; margin: 8px; overflow-x: hidden;">
+  <mat-card-content fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-toolbar class="profile" style="margin-bottom: 20px;">
+      <span>
+        <div class="toolbar-header-icon-container">
+          <mat-icon class="toolbar-header-icon" fontSet="mdi" fontIcon="mdi-store"></mat-icon>
+        </div>
+      </span>
+      <span>{{model.name}}
+      </span>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center stretch" class="machine-outer">
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" style="height: 450px;">
+          <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center stretch">
+            <div class="product-row">
+              <div class="product-slot" *ngFor="let slot of model.slots" (click)="slot.assignedProduct && slot.assignedProduct.quantity > 0 && totalPaid > slot.assignedProduct.price ? productChosen(slot) : null">
+                <div *ngIf="slot.assignedProduct" class="quantity-remaining">x{{slot.assignedProduct.quantity}}</div>
+                <div class="product-slot-window" [class.none]="slot.assignedProduct && slot.assignedProduct.quantity === 0 || !slot.assignedProduct || slot.assignedProduct && slot.assignedProduct.price > totalPaid">
+                  <img [class.none-remaining]="slot.assignedProduct && slot.assignedProduct.quantity === 0" *ngIf="slot.assignedProduct" class="product-image"
+                    height="64" width="64" src="{{slot.assignedProduct.imageUrl}}" alt="">
+                  <div matTooltipClass="no-margin" matTooltipPosition="above" matTooltip="Sold Out!" *ngIf="slot.assignedProduct && slot.assignedProduct.quantity === 0"
+                    class="sold-out">
+                    <mat-icon style="color: #d32f2f;" class="mdi-60px mdi-bold" fontSet="mdi" fontIcon="mdi-cancel"></mat-icon>
+                  </div>
+                  <div matTooltipClass="no-margin" matTooltipPosition="above" matTooltip="This Product Requires More Payment!" *ngIf="slot.assignedProduct && slot.assignedProduct.quantity > 0 && totalPaid < slot.assignedProduct.price"
+                    class="sold-out">
+                  </div>
+                </div>
+                <div style="padding-top: 3px; color: rgba(255,255,255,0.67);">{{slot.code}}
+                  <span style="color: rgba(255,255,255,0.67);" *ngIf="slot.assignedProduct"> | {{slot.assignedProduct.price | currency:'USD':true:'1.2-2'}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" style="min-width: 500px;">
+        <div style="font-size: 22px;">Select Money to Insert into the Machine
+        </div>
+        <mat-tab-group style="width: 100%; min-height: 350px;">
+          <mat-tab fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+            <ng-template mat-tab-label>
+              <div>
+                <mat-icon class="mdi-18px mdi-margin-side-10px" fontSet="mdi" fontIcon="mdi-eye"></mat-icon>
+                <span style="font-size: 18px;">Visual Inputs</span>
+              </div>
+            </ng-template>
+            <div fxLayout="row" fxLayoutAlign="space-around center" style="padding-bottom: 10px;">
+              <div class="coin bronze" (click)="moneyClicked(.01)">
+                <p>1</p>
+              </div>
+              <div class="coin silver" (click)="moneyClicked(.05)">
+                <p>5</p>
+              </div>
+              <div class="coin silver" (click)="moneyClicked(.10)">
+                <p>10</p>
+              </div>
+              <div class="coin silver" (click)="moneyClicked(.25)">
+                <p>25</p>
+              </div>
+            </div>
+            <div fxLayout="row" style="padding-bottom: 10px;">
+              <div class="payment-method-container" style="width: 250px;">
+                <div class="payment-method">
+                  <div class="dollar-bill" (click)="moneyClicked(1)">
+                    <div class="dollar-number tl">1</div>
+                    <div class="dollar-number tr">1</div>
+                    <div class="dollar-number bl">1</div>
+                    <div class="dollar-number br">1</div>
+                    <div class="dollar-logo">
+                      <div class="dollar-logo-pic">$</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="payment-method-container" style="width: 250px;">
+                <div class="payment-method">
+                  <div class="dollar-bill" (click)="moneyClicked(5)">
+                    <div class="dollar-number tl">5</div>
+                    <div class="dollar-number tr">5</div>
+                    <div class="dollar-number bl">5</div>
+                    <div class="dollar-number br">5</div>
+                    <div class="dollar-logo">
+                      <div class="dollar-logo-pic">$</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" style="padding-bottom: 20px;">
+              <div class="payment-method-container" style="width: 250px;">
+                <div class="payment-method">
+                  <div class="dollar-bill" (click)="moneyClicked(10)">
+                    <div class="dollar-number tl">10</div>
+                    <div class="dollar-number tr">10</div>
+                    <div class="dollar-number bl">10</div>
+                    <div class="dollar-number br">10</div>
+                    <div class="dollar-logo">
+                      <div class="dollar-logo-pic">$</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="payment-method-container" style="width: 250px;">
+                <div class="payment-method">
+                  <div class="dollar-bill" (click)="moneyClicked(20)">
+                    <div class="dollar-number tl">20</div>
+                    <div class="dollar-number tr">20</div>
+                    <div class="dollar-number bl">20</div>
+                    <div class="dollar-number br">20</div>
+                    <div class="dollar-logo">
+                      <div class="dollar-logo-pic">$</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <ng-template mat-tab-label>
+              <div>
+                <mat-icon class="mdi-18px mdi-margin-side-10px" fontSet="mdi" fontIcon="mdi-pencil"></mat-icon>
+                <span style="font-size: 18px;">Textual Input</span>
+              </div>
+            </ng-template>
+            <div fxLayout="row" fxLayoutAlign="center center" style="padding: 20px 0;">
+              <mat-form-field style="font-size: 24px; min-width: 400px;">
+                <input matInput name="amount" placeholder="Amount of Money to Insert" color="primary" [(ngModel)]="moneyToInsert" [textMask]="{mask: paymentAmountMask, guide: false}"
+                  id="amount" (focus)="amountOnFocus($event.target.value, $event.target.id)" (blur)="amountOnBlur($event.target.value, $event.target.id)"
+                  (keyup)="amountOnChanges()">
+                <span matPrefix>$&nbsp;</span>
+                <mat-hint>
+                  <span style="color: #d32f2f; font-size: 16px;">
+                    <strong>{{maxAmountError}}</strong>
+                  </span>
+                </mat-hint>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <button mat-raised-button color="primary" (click)="insertMoney()" [disabled]="stripFormatting(moneyToInsert) > maxAmount">Insert Money</button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+        <div fxFlex fxLayout="row" fxLayoutAlign="center center" style="width: 100%; font-size: 14px; padding-top: 30px; border-top: solid 2px #777;">
+          Total Inserted: {{totalPaid | currency:'USD':true:'1.2-2'}}
+          <span fxFlex></span>
+          <span>
+            <button mat-button color="primary" (click)="calculateChange()">Calculate Change</button>
+          </span>
+        </div>
+        <div *ngIf="changeDescription !== ''" fxFlex fxLayout="row" fxLayoutAlign="center center" style="max-width: 400px; font-size: 14px; padding-top: 30px;">
+          {{changeDescription}}
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

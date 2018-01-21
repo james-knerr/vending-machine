@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Sunday</title>
+  <title>Vending Machine Simulator</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.materialdesignicons.com/1.9.32/css/materialdesignicons.min.css" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
-  <app-root></app-root>
+
+<body style="overflow:hidden;background: #fafafa">
+  <app-root style="overflow-y:hidden;">
+    <div id="preloader">
+      <div id="status">
+        <div class="init-spinner"></div>
+      </div>
+    </div>
+  </app-root>
 </body>
+
 </html>

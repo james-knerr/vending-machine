@@ -1,0 +1,257 @@
+@import '../vending-machine.styles.scss';
+@import '~@angular/material/theming';
+
+.machine-outer {
+    width: 300px;
+    min-width: 300px !important;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+    margin: 0 54px;
+    height: 500px;
+    background-color: #9575cd;
+    padding: 20px;
+    position: relative;
+    border-radius: 5px;
+  }
+
+  .product-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 450px;
+  }
+  .product-slot {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      width: 75px;
+      height: 130px;
+  }
+
+  .product-slot-window {
+      
+    @include mat-elevation-transition;
+    @include mat-elevation(1);
+    //transition: all 0.3s ease;
+    cursor: pointer;
+    width: 75px;
+    height: 100px;
+    border-color: white;
+    border-radius: 6px;
+    border-style: solid;
+    background-color: #888888;
+}
+.product-slot-window:hover {
+    @include mat-elevation(8);
+    border-color: white;
+    border-radius: 6px;
+}
+.product-slot-window.none {
+    @include mat-elevation(1);
+    cursor: not-allowed;
+}
+.product-slot-window.none:hover {
+    @include mat-elevation(1);
+    cursor: not-allowed;
+}
+
+  .quantity-remaining {
+      position: relative;
+      left: 30px;
+      top: 12px;
+      font-size: 8px;
+  }
+
+  .sold-out {
+    z-index: 1000;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.55);
+    width: 75px;
+    height: 100px;
+    position: relative;
+    bottom: 67px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-image {
+    position: relative;
+    top: 18px;
+    left: 5px;
+    z-index: 100;
+  }
+  .product-image.none-remaining {
+      z-index: 1;
+  }
+
+  .coin p{
+      text-align: center;
+    position: absolute;
+    font-size: 24px;
+    z-index: 700;
+    line-height: 52px;
+    width: 100%;
+    }
+  
+  .coin.bronze p{  color: rgba(223,182,103,1);}
+  .coin.silver p{  color: rgba(160,160,160,1);}
+  
+  .coin:hover {
+    box-shadow: 0px 1px 18px 0px rgba(black, 0.12), 0px 6px 10px 0px rgba(black, 0.14), 0px 3px 5px -1px rgba(black, 0.2);
+  }
+
+  .coin{
+      
+    transition: all 0.3s ease;
+    cursor: pointer;
+    content: "";
+    width: 52px; 
+    height: 52px;
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+    top: 6px;
+    border-radius: 50px;
+    z-index: 500;
+    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
+    }
+  
+  .coin:after{
+    content: "";
+    width: 42px; 
+    height: 42px;
+    display: block;
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    border-radius: 50px;
+    z-index: 600;
+    }
+  
+  .coin:before{
+    content: "";
+    width: 50px; 
+    height: 50px;
+    display: block;
+    position: absolute;
+    border-radius: 50px;
+    z-index: 500;
+    }
+
+  .bronze{
+    background: linear-gradient(45deg,  rgba(223,182,103,1) 0%,rgba(249,243,232,1) 56%,rgba(231,192,116,1) 96%); 
+    }
+  
+  .bronze:before{
+    background: linear-gradient(135deg,  #d19c35 0%,#f7e6c5 50%,#e8b558 100%);
+    border: 1px solid #e6b86a;
+    }
+  
+  .bronze:after{
+    background: linear-gradient(45deg,  rgba(223,182,103,1) 0%,rgba(249,243,232,1) 56%,rgba(231,192,116,1) 96%);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(209,156,53,0.3);
+    border-right: 1px solid rgba(209,156,53,0.5);
+    box-shadow: inset 0px 0px 2px 2px rgba(153, 106, 26, .05);
+    }
+  
+  .silver{
+    background: linear-gradient(45deg,  rgba(160,160,160,1) 0%,rgba(232,232,232,1) 56%);
+    }
+  
+  .silver:before{
+    background: linear-gradient(45deg,  rgba(181,181,181,1) 0%,rgba(252,252,252,1) 56%,rgba(232,232,232,1) 96%);
+    border: 1px solid rgba(181,181,181,1);
+    }
+  
+  
+  .silver:after{
+    background: linear-gradient(45deg,  rgba(181,181,181,1) 0%,rgba(252,252,252,1) 56%,rgba(232,232,232,1) 96%);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(160,160,160,0.3);
+    border-right: 1px solid rgba(160,160,160,0.5);
+    box-shadow: inset 0px 0px 2px 2px rgba(150, 150, 150, .05);
+    }
+
+  
+    
+.dollar-bill {
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 230px;
+    height: 110px;
+    background: #85BB65;
+    border-radius: 7.5px;
+}
+.dollar-bill:hover {
+    box-shadow: 0px 1px 18px 0px rgba(black, 0.12), 0px 6px 10px 0px rgba(black, 0.14), 0px 3px 5px -1px rgba(black, 0.2);
+  }
+.dollar-number {
+    font-size: 24px;
+    position: absolute;
+    color: #B5E19B;
+}
+.tl {
+    top: 10px;
+    left: 20px;
+}
+.tr {
+    top: 10px;
+    right: 20px;
+}
+.bl {
+     bottom: 10px;
+    left: 20px;
+}
+.br {
+    bottom: 10px;
+    right: 20px;
+}
+.dollar-logo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 40%;
+    top: 25%;
+    border-radius: 100%;
+    border: solid 3px #B5E19B;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.dollar-logo-pic {
+    opacity: .7;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    color: #B5E19B;
+    font-size: 40px;
+
+}
+.payment-method-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.payment-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

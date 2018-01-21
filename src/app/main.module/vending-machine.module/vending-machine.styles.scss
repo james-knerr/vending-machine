@@ -1,0 +1,11 @@
+@import '../main.styles.scss';
+
+mat-card-content{
+    padding: 0;
+}
+mat-card {
+    overflow-y: auto;
+    height: 100%;
+    margin-bottom: 8px;
+    padding:8px;
+}

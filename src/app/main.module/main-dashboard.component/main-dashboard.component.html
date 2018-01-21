@@ -1,0 +1,22 @@
+<div fxLayout fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="space-around center" style="height: 100%; padding-bottom: 72px;">
+  <div fxFill fxFlex="100" style="max-width: 700px;">
+    <mat-card fxLayout fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center stretch" style="height: 100%; overflow-y: auto; margin: 8px; overflow-x: hidden;">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center stretch" style="position: relative; height: 100%;">
+        <div fxHide [fxShow.gt-sm]="true" style="border-bottom: #7e57c2 2px solid;" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
+          fxAlign="start">
+          <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 28}" [ngStyle.gt-xs]="{'font-size.px': 34}">Welcome to the Vending Machine Simulator!</span>
+          <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 16}" [ngStyle.gt-xs]="{'font-size.px': 18}">{{currentDate | date:'fullDate'}}</span>
+        </div>
+        <div fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign="space-around stretch" fxAlign="center" style="height: 100%;">
+          <button [ngStyle.xs]="{'margin.px': 5, 'width.px': 200}" [ngStyle.sm]="{'margin.px': 7, 'width.px': 200}" [ngStyle.gt-sm]="{'margin.px': 10, 'width.px': 275, 'height.px': 275}"
+            fxFlexAlign="center" mat-button class="secondary-dashboard-button" fxLayout="column" fxLayoutAlign="center stretch"
+            routerLink="../vending-machines" routerLinkActive="active">
+            <mat-icon style="vertical-align: middle;" class="mdi-120px" fontSet="mdi" fontIcon="mdi-store"></mat-icon>
+            <div style="font-size: 18px; margin: 5px 0;">VENDING MACHINES</div>
+            <div style="font-size: 16px; line-height: 19px;" fxHide [fxShow.gt-sm]="true">Manage your vending machines!</div>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

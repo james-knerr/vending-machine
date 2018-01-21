@@ -1,0 +1,11 @@
+@import '../vending-machine.styles.scss';
+
+.hover-row {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.hover-row:hover {
+    background-color: #ede7f6;
+}
