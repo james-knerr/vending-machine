@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "Vending Machine Simulator",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
